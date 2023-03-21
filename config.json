@@ -93,10 +93,53 @@
   "webhook": {
     "enabled": true,
     "url": "https://hug.inter.ducphuclee.tech/users/1/web_requests/8/supersecretstring",
-    "retries": 3,
-    "retry_delay": 0.2,
-    "allow_custom_messages": true,
-    "format": "json",
+    "notify_on_start": true,
+    "notify_on_stop": true,
+    "notify_on_warning": true,
+    "notify_on_trade": true,
+    "notify_on_internal_error": true,
+    "max_trades_per_second": 0.5,
+    "entry": {
+      "value1": "{direction}ing {pair}",
+      "value2": "limit {limit:8f}",
+      "value3": "{stake_amount:8f} {stake_currency}"
+    },
+    "entry_cancel": {
+      "value1": "Cancelling Open {direction} Order for {pair}",
+      "value2": "limit {limit:8f}",
+      "value3": "{stake_amount:8f} {stake_currency}"
+    },
+    "entry_fill": {
+      "value1": "{direction} Order for {pair} filled",
+      "value2": "at {open_rate:8f}",
+      "value3": ""
+    },
+    "exit": {
+      "value1": "Exiting {pair}",
+      "value2": "limit {limit:8f}",
+      "value3": "profit: {profit_amount:8f} {stake_currency} ({profit_ratio})"
+    },
+    "exit_cancel": {
+      "value1": "Cancelling Open Exit Order for {pair}",
+      "value2": "limit {limit:8f}",
+      "value3": "profit: {profit_amount:8f} {stake_currency} ({profit_ratio})"
+    },
+    "exit_fill": {
+      "value1": "Exit Order for {pair} filled",
+      "value2": "at {close_rate:8f}.",
+      "value3": ""
+    },
+    "status": {
+      "value1": "Status: {status}",
+      "value2": "",
+      "value3": ""
+    },
+    "startup": {
+      "text": "Bot Startup"
+    },
+    "webhookstatus": {
+      "status": "{status}"
+    },
     "strategy_msg": {
       "data": "{msg}"
     }
